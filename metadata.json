@@ -1,0 +1,6 @@
+{
+  "name": "Folia - Gestion & Soin des Plantes",
+  "description": "Application complète de gestion de plantes : vérifications quotidiennes, fiches détaillées par emplacement, journal des soins et suivi des rappels.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
