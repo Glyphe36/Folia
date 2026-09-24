@@ -1,0 +1,10 @@
+
+push graphic-context
+viewbox 0 0 256 256
+fill '#093c2f'
+roundrectangle 0,0 256,256 56,56
+stroke '#22c55e'
+strokewidth 4
+fill none
+roundrectangle 4,4 252,252 52,52
+pop graphic-context

@@ -33,8 +33,13 @@ export const Header: React.FC<HeaderProps> = ({ onOpenAddPlant, onOpenQuickCare 
               onClick={() => setActiveTab('accueil')}
               className="flex items-center gap-2.5 text-left group focus:outline-none"
             >
-              <div className="w-9 h-9 rounded-lg bg-emerald-800 text-stone-100 flex items-center justify-center transition-transform group-hover:scale-105 shadow-sm">
-                <Sprout className="w-5 h-5 text-emerald-300" />
+              <div className="w-9 h-9 rounded-xl overflow-hidden shadow-sm transition-transform group-hover:scale-105 border border-emerald-700/30">
+                <img
+                  src="/favicon.svg"
+                  alt="Folia Logo"
+                  className="w-full h-full object-contain"
+                  referrerPolicy="no-referrer"
+                />
               </div>
               <span className="font-serif text-2xl font-bold tracking-tight text-emerald-950 group-hover:text-emerald-800 transition-colors">
                 Folia

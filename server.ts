@@ -63,6 +63,9 @@ async function bootstrap() {
 
   const app = express();
 
+  // Serve static assets from public folder (favicon.ico, apple-touch-icon.png, etc.)
+  app.use(express.static(path.resolve(__dirname, 'public')));
+
   // Simple proxy route for /api -> PHP server on port 3001
   app.all('/api*', async (req, res) => {
     try {
