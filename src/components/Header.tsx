@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { usePlantContext } from '../context/PlantContext';
-import { Sprout, Plus, User, Check, BellRing } from 'lucide-react';
+import { Sprout, Plus, User, Check, BellRing, Database } from 'lucide-react';
 
 interface HeaderProps {
   onOpenAddPlant: () => void;
@@ -16,6 +16,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenAddPlant, onOpenQuickCare 
     currentUser,
     setCurrentUser,
     triggerReminderSimulation,
+    apiStatus,
   } = usePlantContext();
 
   const [showUserDropdown, setShowUserDropdown] = useState(false);
@@ -105,8 +106,27 @@ export const Header: React.FC<HeaderProps> = ({ onOpenAddPlant, onOpenQuickCare 
             </button>
           </nav>
 
-          {/* Zone 3: Actions (User Profile & Add Plant) */}
+          {/* Zone 3: Actions (API Badge, Reminder Test, User Profile & Add Plant) */}
           <div className="flex items-center gap-2 sm:gap-3">
+            {/* API Status Pill */}
+            <button
+              onClick={() => setActiveTab('parametres')}
+              title={`API Backend: ${apiStatus.activeUrl} (${apiStatus.connected ? 'Connecté SQLite' : 'Déconnecté / Fallback'})`}
+              className={`hidden sm:flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-mono border transition-colors ${
+                apiStatus.connected
+                  ? 'bg-emerald-50 text-emerald-800 border-emerald-200 hover:bg-emerald-100'
+                  : 'bg-amber-50 text-amber-800 border-amber-200 hover:bg-amber-100'
+              }`}
+            >
+              <span
+                className={`w-1.5 h-1.5 rounded-full ${
+                  apiStatus.connected ? 'bg-emerald-600 animate-pulse' : 'bg-amber-600'
+                }`}
+              />
+              <Database className="w-3 h-3 text-current" />
+              <span>PHP/SQLite</span>
+            </button>
+
             {/* Quick reminder simulation alert button */}
             <button
               onClick={triggerReminderSimulation}
